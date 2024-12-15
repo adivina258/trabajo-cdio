@@ -69,8 +69,6 @@ double readTemperature(int channelValueTemperature) {
 }
 
 // Función para leer la humedad desde el canal correspondiente
-// @param channelValueHumidity: Canal configurado para el sensor de humedad
-// @return Humedad relativa en porcentaje
 int readHumidity(int channelValueHumidity) {
     int sensorValueHumidity = ads1115.readADC_SingleEnded(channelValueHumidity);
     int humidity = -0.0098 * sensorValueHumidity + 197.02;
@@ -82,7 +80,6 @@ int readHumidity(int channelValueHumidity) {
 }
 
 // Función para imprimir la temperatura
-// @param tempValue: Temperatura calculada en °C
 void printTemperature(double tempValue) {
     Serial.println();
     Serial.print("Temperatura: ");
@@ -91,7 +88,6 @@ void printTemperature(double tempValue) {
 }
 
 // Función para imprimir la humedad
-// @param humidityValue: Humedad relativa en porcentaje
 void printHumidity(int humidityValue) {
     Serial.println();
     Serial.print("Humedad: ");
@@ -100,15 +96,11 @@ void printHumidity(int humidityValue) {
 }
 
 // Función para leer el valor bruto desde un canal del ADS1115
-// @param channel: Canal del ADS1115 que se desea leer
-// @return Valor bruto leído
 int readSensorValue(int channel) {
     return ads1115.readADC_SingleEnded(channel);
 }
 
 // Función para imprimir los valores de luz
-// @param rawValue: Valor bruto leído del sensor de luz
-// @param percentage: Porcentaje de luz calculado
 void printSensorValue(int rawValue, float percentage) {
     Serial.println();
     Serial.print("Valor del sensor (raw): ");
